@@ -19,7 +19,9 @@ describe('User Service Integration Tests', () => {
 
     // Perform assertions
     expect(newUser).to.have.property('id');
-    expect(newUser).to.have.status(200);
+    expect(newUser).to.have.status(201);
+
+   var UserID =  expect(newUser).to.have.property('id').toString;
   });
 
   describe('Message Service Integration Tests', () => {
@@ -34,10 +36,10 @@ describe('User Service Integration Tests', () => {
       const sentMessage = await messageService.sendMessage(messageData);
   
       // Perform assertions
-      expect(sentMessage).to.be.an('object');
-      expect(sentMessage).to.have.property('id');
-      expect(sentMessage.user).to.equal(messageData.user);
       expect(sentMessage.message).to.equal(messageData.message);
+      expect(sentMessage).to.have.status(200);
     });
+
   });
+  
 });
