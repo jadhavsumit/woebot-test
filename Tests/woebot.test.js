@@ -1,6 +1,8 @@
 const axios = require('axios');
 const { baseURL } = require('../test.config.js'); // Importing the base URL
 const { expect } = require('chai');
+const chai = require("chai");
+const expect = require("chai").expect;
 
 describe('User Service Integration Tests', () => {
   it('should create a new user', async () => {
@@ -21,7 +23,7 @@ describe('User Service Integration Tests', () => {
     expect(newUser).to.have.property('id');
     expect(newUser).to.have.status(201);
 
-   var UserID =  expect(newUser).to.have.property('id').toString;
+    UserID =  newUser.data.id;
   });
 
   describe('Message Service Integration Tests', () => {
