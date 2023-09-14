@@ -15,7 +15,9 @@ var password = generator.generate({
 	numbers: true
 });
 
-describe('User Service Integration Tests', () => {
+describe
+('User Service Integration Tests', () => {
+  let UserID1; // Variable to store the user ID
   it('create a new user', async () => {
     // Payload for user creation
     const userData = 
@@ -34,7 +36,7 @@ describe('User Service Integration Tests', () => {
     expect(newUser).to.have.property('id');
     expect(newUser).to.have.status(201);
 
-    UserID01 =  newUser.data.id;
+    UserID1 =  newUser.data.id;
   });
   
 });
